@@ -1,10 +1,16 @@
 import React,{useContext} from "react";
 import {ProductContext} from '../context/products'
+import Loading from '../components/Loading'
+import ProductList from '../components/Products/ProductList'
 export default function Products() {
-  const {loading,products,featured}=useContext(ProductContext)
-return <h1>hello from products page:
- {
-  loading===true?"loading":products.map((product,index)=><li key={index}>{product.id}</li>)
- }
-</h1>;
+  const {loading,products}=useContext(ProductContext)
+  // console.log(products)
+  if(loading)
+  {
+    return <Loading />
+  }
+  else
+  {
+    return <ProductList title="Our Products" products={products}/>
+  }
 }
