@@ -12,6 +12,7 @@ import ProductDetails from './pages/ProductDetails'
 
 //component
 import Header from './components/Header'
+import Alert from './components/Alert'
 export default function App() {
   return <Router>
     <Header/>
