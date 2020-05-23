@@ -4,7 +4,6 @@ import { UserContext} from '../context/user'
 export default function Alert() {
 
   const {alert,hideAlert}=React.useContext(UserContext)
-
   let css='alert-container'
   if(alert.show)
   {
@@ -12,14 +11,17 @@ export default function Alert() {
     if(alert.type==="danger")
       css+=" alert-danger"
   }
-
-  return <div className={css}>
-      <div className="alert">
-<p>{alert.show && alert.msg}</p>
-<button className="alert-close" onClick={hideAlert}>
-  <FaWindowClose/>
-</button>
-      </div>
-
+  return (
+  <div className={css}>
+    <div className="alert">
+      <p>{alert.message}</p>
+      <button 
+      className="alert-close"
+      onClick={hideAlert}
+      >
+        <FaWindowClose/>
+      </button>
+    </div>
   </div>
+  )
 }

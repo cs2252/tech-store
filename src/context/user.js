@@ -14,21 +14,22 @@ function UserProvider({children}){
     localStorage.setItem('user',JSON.stringify(user))
   }
 
-  const userLogOut=()=>{
+  const userLogout=()=>{
     setUser({username:null,token:null})
     localStorage.removeItem("user")
   }
-  const [alert, setAlert] = useState({show:true,message:'Hello world',type:"success"})
 
-  const showAlert=(msg,type="success")=>{
-    setAlert({show:true,msg,type})
+  const [alert, setAlert] = useState({show:false,message:'',type:"success"})
+
+  const showAlert=(message,type="success")=>{
+    setAlert({show:true,message,type})
   }
   const hideAlert=()=>{
     setAlert({...alert,show:false})
   }
 
   return <UserContext.Provider value={
-    {user,userLogin,userLogOut
+    {user,userLogin,userLogout
     ,alert,showAlert,hideAlert}}>
     {children}
   </UserContext.Provider>

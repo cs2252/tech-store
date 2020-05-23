@@ -11,12 +11,12 @@ async function registerUser({email,password,userName}){
   .catch(error=>console.log(error))
   console.log(response)
   return response
-
+  
   // axios
   // .post('http://localhost:1337/auth/local/register', {
-  //    userName,
-  //  email,
-  //   password,
+  //    username:userName,
+  //  email:email,
+  //   password:password,
   // })
   // .then(response => {
   //   // Handle success.
