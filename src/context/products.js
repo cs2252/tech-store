@@ -14,11 +14,11 @@ function ProductProvider({children}) {
     setLoading(true)
     axios.get(`${url}/products`)
     .then(response=>{
-      // console.log(response.data)
+     
       const products=flattenProducts(response.data)
       const featured=featuredProducts(products)
       setFeatured(featured)
-      setProducts(flattenProducts(response.data))
+      setProducts(products)
     })
     .catch(error=>console.log("some error occured"))
     setLoading(false)

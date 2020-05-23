@@ -15,10 +15,11 @@ export default function ProductDetails() {
   }
   else
   {
-    const {image/*:{url:imageUrl}*/,title,price,description}=product
+    // console.log(product)
+    const {image,title,price,description}=product
     return (
       <section className="single-product">
-        <img src={image/*imageUrl */} alt={title}
+        <img src={image} alt={title}
         className="single-product-image" />
         <article>
           <h1>{title}</h1>

@@ -18,19 +18,19 @@ const getCartFromLocalStoreage=()=>{
 const CartContext=React.createContext()
 
 function CartProvider({children}){
-// console.log(Props)
+// console.log(children)
   const [cart, setCart] = useState(getCartFromLocalStoreage())
   const [total, setTotal] = useState(0)
   const [cartItems, setCartItems] = useState(0)
 
   useEffect(() => {
-   //cart items
+   //no of items in cart
    localStorage.setItem("cart",JSON.stringify(cart))
    const newCartItems=cart.reduce((total,cartItem)=>{
      return total+cartItem.amount
    },0)
    setCartItems(newCartItems)
-   //cart total
+   //cart total amount
    let newCartTotal=cart.reduce((total,cartItem)=>{
      return total+=(parseFloat(cartItem.amount)*parseFloat(cartItem.price))
    },0)
@@ -69,7 +69,9 @@ function CartProvider({children}){
   }
   //add to cart item
   const addToCart=product=>{
+   
     const {id,title,price,amout,image}=product
+    //  console.log(image)
     const item=cart.find(item=>item.id===id)
     if(item)
     {

@@ -5,7 +5,7 @@ export function flattenProducts(data){
     // let image=item.image.url
     //local setup no deployment
     // console.log(url,item.image)
-    let image= `${url}${item.image[0].url}`
+    let image= `${item.image[0].url}`
     return {
       ...item,
       image
