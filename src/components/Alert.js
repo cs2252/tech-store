@@ -1,3 +1,4 @@
+//visited
 import React from "react";
 import {FaWindowClose} from 'react-icons/fa'
 import { UserContext} from '../context/user'

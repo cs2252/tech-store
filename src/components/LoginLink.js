@@ -1,3 +1,4 @@
+//visited
 import React from "react";
 import {Link} from "react-router-dom"
 import {UserContext} from '../context/user'
@@ -12,7 +13,7 @@ export default function LoginLink() {
       className="login-btn"
       onClick={()=>{
         userLogout()
-        clearCart()
+        clearCart() 
       }}
       >
         logout

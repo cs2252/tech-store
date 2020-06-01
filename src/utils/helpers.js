@@ -1,11 +1,7 @@
-import url from './URL'
+//visited
 export function flattenProducts(data){
   return data.map(item=>{
-    //claudinary
-    // let image=item.image.url
-    //local setup no deployment
-    // console.log(url,item.image)
-    let image= `${item.image[0].url}`
+    let image= item.image[0]&& item.image[0].url ||null
     return {
       ...item,
       image
@@ -14,9 +10,22 @@ export function flattenProducts(data){
 }
 
 // helper functions
-const featuredProducts=data=>{
+export const featuredProducts=data=>{
   return data.filter(item=>{
     return item.featured===true
   })
 }
-export default featuredProducts
+
+//paginate
+export const paginate=products=>{
+  //our code goes here
+  // console.log(products)
+  const itemsPerPage=4
+  const numberOfPages=Math.ceil(products.length/itemsPerPage)
+  const newProducts=Array.from({length:numberOfPages},(_,index)=>{
+    let start=index*itemsPerPage
+    return products.slice(start,start+itemsPerPage)
+  })
+
+  return newProducts
+}

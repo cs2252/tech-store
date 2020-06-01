@@ -1,5 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+
 //import pages
 import About from './pages/About'
 import Cart from './pages/Cart'
@@ -14,18 +15,20 @@ import PrivateRoute from './components/PrivateRoute'
 //component
 import Header from './components/Header'
 import Alert from './components/Alert'
+import ScrollButton from './components/ScrollButton'
+
+
 export default function App() {
   return <Router>
     <Header/>
     <Alert />
+    <ScrollButton/>
    <Switch>
     <Route exact path="/"><Home/></Route>
     <Route path="/About"><About/></Route>
     <Route path="/Cart"><Cart/></Route>
     <PrivateRoute 
-      path="/Checkout" 
-      name="chandan" 
-      message="hello"
+      path="/Checkout"
       >
         <Checkout/>
     </PrivateRoute> 
